@@ -26,13 +26,12 @@ const flightSchema = new Schema({
         type: Number,
         min: 10,
         max: 9999,
-        default: 'DEN'
     },
     departs: {
         type: Date,
         // default: (Date + 1),
     },
-    destinations: [destinationSchema],
+    destinations: [destinationSchema]
 });
 
 module.exports = mongoose.model('Flight', flightSchema);

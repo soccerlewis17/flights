@@ -17,6 +17,15 @@ function create(req, res){
             console.log(err);
             res.send('error in destination create function');
         }
-        console.log(flightDoc);
+
+        flightDoc.destinations.push(req.body);
+
+        console.log(flightDoc, '<---- flightDoc from database');
+
+        flightDoc.save(function(err){
+            console.log(err);
+           console.log(flightDoc, '<---- saved flightDoc from database');
+           res.redirect(`/flights/${req.params.id}`);
+        });
     })
 }
